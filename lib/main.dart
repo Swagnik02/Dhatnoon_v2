@@ -1,5 +1,6 @@
 import 'package:dhatnoon_v2/views/auth_view.dart';
 import 'package:dhatnoon_v2/views/main_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
