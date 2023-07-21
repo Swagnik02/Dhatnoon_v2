@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>694755082868-99tk2ueus27k3if7peff8lrlehg3v4cg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.694755082868-99tk2ueus27k3if7peff8lrlehg3v4cg</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>694755082868-pbs6gq1374jdqitv4jraasqif67o6gcl.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBPf_vUqb1y8S5xf6w-Ah77-e5_ZlimrpY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>694755082868</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.dhatnoonV2</string>
+	<key>PROJECT_ID</key>
+	<string>dhatnoon-backend</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dhatnoon-backend.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:694755082868:ios:0a1a9e5e7a063c752f0721</string>
+</dict>
+</plist>
