@@ -1,0 +1,1 @@
+const mainRoute = '/main-page/';
