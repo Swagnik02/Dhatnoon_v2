@@ -1,4 +1,4 @@
-import 'package:dhatnoon_v2/views/auth_view.dart';
+import 'package:dhatnoon_v2/views/login_view.dart';
 import 'package:dhatnoon_v2/views/main_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -14,7 +14,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const MainView(),
+      home: const HomePage(),
       routes: const {
         // mainRoute: (context) => const HomePage(),
       },
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
             if (user != null) {
               return const MainView();
             } else {
-              return const AuthView();
+              return const LoginView();
             }
 
           default:
