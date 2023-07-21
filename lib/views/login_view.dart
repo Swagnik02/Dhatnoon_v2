@@ -9,7 +9,18 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  // You can add your login logic here
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  // Function to handle the login logic
+  void _loginUser() {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+
+    // Implement your login logic here
+    // For example, you can use FirebaseAuth or your custom backend API
+    // to authenticate the user with the provided email and password.
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,24 +28,36 @@ class _LoginViewState extends State<LoginView> {
       appBar: AppBar(
         title: const Text('Login Screen'),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Your login form widgets can be added here
-
+            TextFormField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                hintText: 'Enter your email',
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: 'Password',
+                hintText: 'Enter your password',
+              ),
+            ),
+            const SizedBox(height: 24),
             ElevatedButton(
-              onPressed: () {
-                // Add your login logic here when the login button is pressed
-              },
+              onPressed: _loginUser,
               child: const Text('Login'),
             ),
-
             const SizedBox(height: 16),
-
             TextButton(
               onPressed: () {
-                // Navigate to the signup page when the "Navigate to Signup" button is pressed
+                // Navigate to the register page when the "Navigate to Signup" button is pressed
                 Navigator.push(
                   context,
                   MaterialPageRoute(
