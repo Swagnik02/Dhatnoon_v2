@@ -22,7 +22,7 @@ Healthcare professionals can remotely monitor patients to ensure that patients a
 People may be concerned about the misuse of this app. To address these concerns, a log record will be kept whenever the camera, microphone, or GPS location is accessed on their device.
 
 ## Doccumention: 
-```https://docs.google.com/document/d/1rxWwlF34suj7pxv-bKW-gU-nNxZ164mqj1UeI9bRRo4/edit?usp=sharing```
+- [GDocs](https://docs.google.com/document/d/1rxWwlF34suj7pxv-bKW-gU-nNxZ164mqj1UeI9bRRo4/edit?usp=sharing)
 
 ## Getting Started
 
