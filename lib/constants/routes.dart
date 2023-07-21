@@ -1,3 +1,3 @@
 const mainRoute = '/main-page/';
-const loginRoute = '/login-page/';
-const registerRoute = '/register-page/';
+const loginRoute = '/login/';
+const registerRoute = '/register/';

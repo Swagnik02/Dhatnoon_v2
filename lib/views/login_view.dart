@@ -1,4 +1,5 @@
-import 'package:dhatnoon_v2/views/register_view.dart';
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -58,12 +59,7 @@ class _LoginViewState extends State<LoginView> {
             TextButton(
               onPressed: () {
                 // Navigate to the register page when the "Navigate to Signup" button is pressed
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const RegisterView(),
-                  ),
-                );
+                Navigator.of(context).pushNamed('/register/');
               },
               child: const Text('Navigate to Signup'),
             ),
