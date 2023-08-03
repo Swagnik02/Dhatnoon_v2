@@ -41,7 +41,7 @@ class _LoginMobileViewState extends State<LoginMobileView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(height: 200),
+              const SizedBox(height: 150),
               const Text(
                 'Log In',
                 style: TextStyle(
@@ -51,20 +51,36 @@ class _LoginMobileViewState extends State<LoginMobileView> {
                 ),
               ),
               const SizedBox(height: 50),
-              const Text(
-                "Mobile",
-                style: TextStyle(fontSize: 18),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(70, 0, 0, 10),
+                    child: Text(
+                      "Mobile",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: ColorConstants.authText,
+                      ),
+                    ),
+                  ),
+                  buildMobileInput(_phoneController),
+                ],
               ),
-              buildMobileInput(_phoneController),
+              const SizedBox(height: 20),
               buildLoginUsingEmail(context),
               const SizedBox(height: 111),
               buildLoginButton(_phoneController, _verifyPhoneNumberForMobile),
               const SizedBox(height: 16),
               buildSignUpLink(context),
-              const SizedBox(height: 50),
+              const SizedBox(height: 56),
               const Text(
                 "Log In or Sign Up",
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(
+                  fontSize: 18,
+                  color: ColorConstants.authText,
+                ),
               ),
             ],
           ),
