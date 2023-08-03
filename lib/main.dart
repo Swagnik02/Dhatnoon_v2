@@ -1,4 +1,4 @@
-import 'package:dhatnoon_v2/views/login_view.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_view.dart';
 import 'package:dhatnoon_v2/views/main_view.dart';
 import 'package:dhatnoon_v2/views/register_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,12 +14,12 @@ void main() {
     MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const AuthView(),
       routes: {
         mainRoute: (context) => const MainView(),
-        loginRoute: (context) => const LoginView(),
+        // loginRoute: (context) => const LoginView(),
         registerRoute: (context) => const RegisterView(),
       },
     ),
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
             if (user != null) {
               return const MainView();
             } else {
-              return const LoginView();
+              return const AuthView();
             }
 
           default:
