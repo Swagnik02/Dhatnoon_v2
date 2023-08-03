@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:dhatnoon_v2/views/Authentication/auth_components/signup_login_link.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../../constants/color_constants.dart';
+import '../auth_components/login_using.dart';
 import '../auth_components/mobile_input.dart';
 import '../auth_components/mobile_login_btn.dart';
 
@@ -53,10 +55,11 @@ class _LoginMobileViewState extends State<LoginMobileView> {
                 style: TextStyle(fontSize: 18),
               ),
               buildMobileInput(_phoneController),
+              buildLoginUsingEmail(context),
               const SizedBox(height: 50),
               buildLoginButton(_phoneController, _verifyPhoneNumberForMobile),
               const SizedBox(height: 16),
-              buildToggleFormButton(),
+              buildSignUpLink(context),
               const SizedBox(height: 50),
               const Text(
                 "Log In or Sign Up",
@@ -67,46 +70,6 @@ class _LoginMobileViewState extends State<LoginMobileView> {
         ),
       ),
     );
-  }
-
-  Widget buildToggleFormButton() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        RichText(
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: isSignUp
-                    ? "Already have an account? "
-                    : "Doesn't have an account? ",
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: ColorConstants.authText,
-                ),
-              ),
-              TextSpan(
-                text: isSignUp ? "Log In" : "Sign Up",
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: ColorConstants.privacyPolicyText,
-                ),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    _toggleForm();
-                  },
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  void _toggleForm() {
-    setState(() {
-      isSignUp = !isSignUp;
-    });
   }
 
   void loginOrSignup() async {
