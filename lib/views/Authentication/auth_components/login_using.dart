@@ -11,8 +11,9 @@ Widget buildLoginUsingEmail(BuildContext context) {
       text: 'Login using ',
       children: [
         TextSpan(
-          text: 'email',
+          text: 'Email',
           style: const TextStyle(
+            fontSize: 16,
             color: ColorConstants.privacyPolicyText,
           ),
           recognizer: TapGestureRecognizer()
@@ -28,6 +29,7 @@ Widget buildLoginUsingEmail(BuildContext context) {
         ),
       ],
       style: const TextStyle(
+        fontSize: 16,
         color: ColorConstants.authText,
       ),
     ),
@@ -42,6 +44,7 @@ Widget buildLoginUsingMobile(BuildContext context) {
         TextSpan(
           text: 'Mobile',
           style: const TextStyle(
+            fontSize: 16,
             color: ColorConstants.privacyPolicyText,
           ),
           recognizer: TapGestureRecognizer()
@@ -57,6 +60,7 @@ Widget buildLoginUsingMobile(BuildContext context) {
         ),
       ],
       style: const TextStyle(
+        fontSize: 16,
         color: ColorConstants.authText,
       ),
     ),

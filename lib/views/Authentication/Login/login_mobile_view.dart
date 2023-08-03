@@ -45,8 +45,9 @@ class _LoginMobileViewState extends State<LoginMobileView> {
               const Text(
                 'Log In',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 32,
                   color: ColorConstants.authText,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               const SizedBox(height: 50),
@@ -56,7 +57,7 @@ class _LoginMobileViewState extends State<LoginMobileView> {
               ),
               buildMobileInput(_phoneController),
               buildLoginUsingEmail(context),
-              const SizedBox(height: 50),
+              const SizedBox(height: 111),
               buildLoginButton(_phoneController, _verifyPhoneNumberForMobile),
               const SizedBox(height: 16),
               buildSignUpLink(context),
