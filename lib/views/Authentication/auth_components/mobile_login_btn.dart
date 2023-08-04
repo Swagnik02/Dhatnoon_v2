@@ -26,6 +26,9 @@ Widget buildLoginButton(
         ),
       ),
     ),
-    child: const Text('LOGIN'),
+    child: const Text(
+      'Log In',
+      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    ),
   );
 }
