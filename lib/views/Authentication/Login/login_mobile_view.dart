@@ -19,14 +19,15 @@ class LoginMobileView extends StatefulWidget {
 }
 
 class _LoginMobileViewState extends State<LoginMobileView> {
-  final TextEditingController _phoneController =
-      TextEditingController(text: "+91 ");
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _countryCodeController = TextEditingController();
   final TextEditingController _otpController = TextEditingController();
   String? verificationId;
   bool isSignUp = false;
 
   @override
   void dispose() {
+    _countryCodeController.text = "+91";
     _phoneController.dispose();
     _otpController.dispose();
     super.dispose();
@@ -66,7 +67,7 @@ class _LoginMobileViewState extends State<LoginMobileView> {
                       ),
                     ),
                   ),
-                  buildMobileInput(_phoneController),
+                  buildMobileInput(_countryCodeController, _phoneController),
                 ],
               ),
               const SizedBox(height: 20),

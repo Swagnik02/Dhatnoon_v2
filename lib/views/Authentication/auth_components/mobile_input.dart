@@ -1,33 +1,52 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import '../../../constants/color_constants.dart';
 
-Widget buildMobileInput(TextEditingController phoneController) {
+Widget buildMobileInput(TextEditingController countryCodeController,
+    TextEditingController phoneController) {
   return Center(
-    child: SizedBox(
-      width: 260,
+    child: Container(
       height: 48,
-      child: TextFormField(
-        keyboardType: TextInputType.number,
-        cursorColor: ColorConstants.authText,
-        controller: phoneController, // Use the passed controller here
-        style: const TextStyle(
-          fontSize: 17, // Updated font size to 15
-          fontWeight: FontWeight.bold,
-          color: ColorConstants.authText,
-        ),
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: ColorConstants.authTextFieldBg,
-          hintStyle: const TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 15, // Updated font size to 15
+      width: 260,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: ColorConstants.authTextFieldBg),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 20,
           ),
-          contentPadding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30.0), // Set border radius here
-            borderSide: BorderSide.none, // Remove the borders
+          SizedBox(
+            width: 45,
+            child: TextField(
+              controller: countryCodeController,
+              decoration: InputDecoration(
+                border: InputBorder.none,
+              ),
+              style: TextStyle(
+                color: ColorConstants.authText,
+                fontSize: 18,
+              ),
+            ),
           ),
-        ),
+          Text(
+            "|",
+            style: TextStyle(fontSize: 33, color: Colors.white),
+          ),
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                  hintText: "Phone",
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10)),
+              style: TextStyle(
+                color: ColorConstants.authText,
+                fontSize: 18,
+              ),
+            ),
+          )
+        ],
       ),
     ),
   );

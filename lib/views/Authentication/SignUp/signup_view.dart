@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/color_constants.dart';
 import '../auth_components/mobile_input.dart';
-import '../auth_components/mobile_signup_btn .dart';
+import '../auth_components/mobile_signup_btn.dart';
 import '../auth_components/signup_login_link.dart';
 import 'dart:developer' as devtools show log;
 
@@ -17,11 +17,17 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  final TextEditingController _phoneController =
-      TextEditingController(text: "+91 ");
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _countryCodeController = TextEditingController();
   final TextEditingController _otpController = TextEditingController();
   String? verificationId;
   bool isSignUp = false;
+
+  @override
+  void initState() {
+    _countryCodeController.text = "+91";
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -64,7 +70,7 @@ class _SignUpViewState extends State<SignUpView> {
                       ),
                     ),
                   ),
-                  buildMobileInput(_phoneController),
+                  buildMobileInput(_countryCodeController, _phoneController),
                 ],
               ),
               const SizedBox(height: 20),
