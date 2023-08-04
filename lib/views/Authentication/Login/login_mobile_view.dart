@@ -4,8 +4,6 @@ import 'package:dhatnoon_v2/views/Authentication/auth_components/signup_login_li
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/button_view.dart';
 
 import '../../../constants/color_constants.dart';
 import '../auth_components/login_using.dart';
