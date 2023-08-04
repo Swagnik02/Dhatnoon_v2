@@ -7,6 +7,7 @@ import '../../../constants/color_constants.dart';
 import '../auth_components/mobile_input.dart';
 import '../auth_components/mobile_signup_btn .dart';
 import '../auth_components/signup_login_link.dart';
+import 'dart:developer' as devtools show log;
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -102,7 +103,7 @@ class _SignUpViewState extends State<SignUpView> {
 
     if (!mobilePattern.hasMatch(mobile)) {
       // If Mobile number is invalid
-      print("Invalid mobile number");
+      devtools.log("Invalid mobile number");
       return;
     }
 
@@ -114,28 +115,28 @@ class _SignUpViewState extends State<SignUpView> {
             "Phone number verification is not supported on this platform.");
       }
     } catch (e) {
-      print(e);
+      devtools.log('$e');
     }
   }
 
   Future<void> _verifyPhoneNumberForMobile(String mobile) async {
     try {
       verificationCompleted(PhoneAuthCredential credential) {
-        print("Verification completed: $credential");
+        devtools.log("Verification completed: $credential");
       }
 
       verificationFailed(FirebaseAuthException exception) {
-        print("Verification failed: ${exception.message}");
+        devtools.log("Verification failed: ${exception.message}");
       }
 
       codeSent(String verificationId, int? resendToken) async {
-        print("Code sent: $verificationId");
+        devtools.log("Code sent: $verificationId");
         this.verificationId = verificationId;
         await _showOtpPage();
       }
 
       codeAutoRetrievalTimeout(String verificationId) {
-        print("Auto retrieval timeout: $verificationId");
+        devtools.log("Auto retrieval timeout: $verificationId");
       }
 
       await FirebaseAuth.instance.verifyPhoneNumber(
@@ -146,7 +147,7 @@ class _SignUpViewState extends State<SignUpView> {
         codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
       );
     } catch (e) {
-      print(e);
+      devtools.log('$e');
     }
   }
 
@@ -246,7 +247,7 @@ class _SignUpViewState extends State<SignUpView> {
         }
       }
     } on FirebaseAuthException catch (e) {
-      print("Error :$e");
+      devtools.log("Error :$e");
     }
   }
 }

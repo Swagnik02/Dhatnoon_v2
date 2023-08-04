@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:developer' as devtools show log;
 
 import '../../../constants/color_constants.dart';
 
@@ -12,7 +13,7 @@ Widget buildSignUpButton(
       } else {
         // Show a message or dialog indicating that the phone number is empty.
         // You can use a SnackBar or showDialog to display the message.
-        print("Phone number is empty.");
+        devtools.log("Phone number is empty.");
       }
     },
     style: ElevatedButton.styleFrom(
