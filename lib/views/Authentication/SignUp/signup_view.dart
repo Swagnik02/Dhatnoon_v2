@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_controllers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +18,7 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  final TextEditingController _countryCodeController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
+  AuthTextControllers authTextControllers = AuthTextControllers();
 
   final TextEditingController _otpController = TextEditingController();
   String? verificationId;
@@ -26,13 +26,13 @@ class _SignUpViewState extends State<SignUpView> {
 
   @override
   void initState() {
-    _countryCodeController.text = "+91";
+    authTextControllers.countryCodeController.text = "+91";
     super.initState();
   }
 
   @override
   void dispose() {
-    _phoneController.dispose();
+    authTextControllers.phoneController.dispose();
     _otpController.dispose();
     super.dispose();
   }
@@ -71,14 +71,13 @@ class _SignUpViewState extends State<SignUpView> {
                       ),
                     ),
                   ),
-                  buildMobileInput(_countryCodeController, _phoneController),
+                  buildMobileInput(authTextControllers),
                 ],
               ),
               const SizedBox(height: 20),
               // buildLoginUsingEmail(context), privacy t&C
               const SizedBox(height: 111),
-              buildSignUpButton(
-                  context, _countryCodeController, _phoneController),
+              buildSignUpButton(context, authTextControllers),
               const SizedBox(height: 16),
               buildLogInLink(context),
               const SizedBox(height: 56),

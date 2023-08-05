@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import '../../../constants/color_constants.dart';
 import 'dart:developer' as devtools show log;
 
+import 'auth_text_controllers.dart';
+
 Widget buildSignUpButton(
-    BuildContext context,
-    TextEditingController countryCodeController,
-    TextEditingController phoneController) {
+    BuildContext context, AuthTextControllers authTextControllers) {
   return ElevatedButton(
     onPressed: () async {
-      print(countryCodeController.text);
-      print(phoneController.text);
+      print(authTextControllers.countryCodeController.text);
+      print(authTextControllers.phoneController.text);
+
       // await FirebaseAuth.instance.verifyPhoneNumber(
       //   phoneNumber: ,
       //   verificationCompleted: (PhoneAuthCredential credential) {},

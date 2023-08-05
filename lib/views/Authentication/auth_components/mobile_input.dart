@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import '../../../constants/color_constants.dart';
+import 'auth_text_controllers.dart';
 
-Widget buildMobileInput(TextEditingController countryCodeController,
-    TextEditingController phoneController) {
+Widget buildMobileInput(AuthTextControllers authTextControllers) {
   return Center(
     child: Container(
       height: 48,
@@ -20,7 +20,7 @@ Widget buildMobileInput(TextEditingController countryCodeController,
           SizedBox(
             width: 45,
             child: TextField(
-              controller: countryCodeController,
+              controller: authTextControllers.countryCodeController,
               decoration: InputDecoration(
                 border: InputBorder.none,
               ),
@@ -36,6 +36,7 @@ Widget buildMobileInput(TextEditingController countryCodeController,
           ),
           Expanded(
             child: TextField(
+              controller: authTextControllers.phoneController,
               decoration: InputDecoration(
                   hintText: "Phone",
                   border: InputBorder.none,
