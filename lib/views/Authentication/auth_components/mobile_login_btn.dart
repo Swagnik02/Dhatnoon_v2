@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../constants/color_constants.dart';
 import 'dart:developer' as devtools show log;
 
-Widget buildLoginButton(
+Widget buildLoginButton(BuildContext context,
     TextEditingController phoneController, Function(String) verifyPhoneNumber) {
   return ElevatedButton(
     onPressed: () {

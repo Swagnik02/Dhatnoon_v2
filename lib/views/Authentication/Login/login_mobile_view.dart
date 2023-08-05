@@ -73,7 +73,8 @@ class _LoginMobileViewState extends State<LoginMobileView> {
               const SizedBox(height: 20),
               buildLoginUsingEmail(context),
               const SizedBox(height: 111),
-              buildLoginButton(_phoneController, _verifyPhoneNumberForMobile),
+              buildLoginButton(
+                  context, _phoneController, _verifyPhoneNumberForMobile),
               const SizedBox(height: 16),
               buildSignUpLink(context),
               const SizedBox(height: 56),

@@ -76,7 +76,8 @@ class _SignUpViewState extends State<SignUpView> {
               const SizedBox(height: 20),
               // buildLoginUsingEmail(context), privacy t&C
               const SizedBox(height: 111),
-              buildSignUpButton(_phoneController, _verifyPhoneNumberForMobile),
+              buildSignUpButton(
+                  context, _phoneController, _verifyPhoneNumberForMobile),
               const SizedBox(height: 16),
               buildLogInLink(context),
               const SizedBox(height: 56),
