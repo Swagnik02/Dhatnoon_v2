@@ -1,26 +1,29 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../constants/color_constants.dart';
 import 'dart:developer' as devtools show log;
 
+import '../../../constants/routes.dart';
 import 'auth_text_controllers.dart';
 
 Widget buildSignUpButton(
     BuildContext context, AuthTextControllers authTextControllers) {
   return ElevatedButton(
     onPressed: () async {
-      print(authTextControllers.countryCodeController.text);
-      print(authTextControllers.phoneController.text);
+      devtools.log(
+          'Mobile number: ${authTextControllers.countryCodeController.text + authTextControllers.phoneController.text}');
 
       // await FirebaseAuth.instance.verifyPhoneNumber(
-      //   phoneNumber: ,
+      //   phoneNumber:
+      //       '${authTextControllers.countryCodeController.text + authTextControllers.phoneController.text}',
       //   verificationCompleted: (PhoneAuthCredential credential) {},
       //   verificationFailed: (FirebaseAuthException e) {},
       //   codeSent: (String verificationId, int? resendToken) {},
       //   codeAutoRetrievalTimeout: (String verificationId) {},
       // );
-      // Navigator.pushNamed(context, otpRoute);
+      Fluttertoast.showToast(msg: "OTP sent !!");
+      Navigator.pushNamed(context, otpRoute);
 
       // if (phoneNumber.isNotEmpty) {
       //   verifyPhoneNumber(phoneNumber);
@@ -28,6 +31,7 @@ Widget buildSignUpButton(
       //   // Show a message or dialog indicating that the phone number is empty.
       //   // You can use a SnackBar or showDialog to display the message.
       //   Fluttertoast.showToast(msg: "Phone number is empty.");
+      //
       // }
     },
     style: ElevatedButton.styleFrom(
