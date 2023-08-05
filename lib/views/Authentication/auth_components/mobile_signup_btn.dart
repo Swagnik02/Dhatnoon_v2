@@ -1,3 +1,7 @@
+// ignore_for_file: unnecessary_string_interpolations
+
+import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -14,16 +18,18 @@ Widget buildSignUpButton(
       devtools.log(
           'Mobile number: ${authTextControllers.countryCodeController.text + authTextControllers.phoneController.text}');
 
-      // await FirebaseAuth.instance.verifyPhoneNumber(
-      //   phoneNumber:
-      //       '${authTextControllers.countryCodeController.text + authTextControllers.phoneController.text}',
-      //   verificationCompleted: (PhoneAuthCredential credential) {},
-      //   verificationFailed: (FirebaseAuthException e) {},
-      //   codeSent: (String verificationId, int? resendToken) {},
-      //   codeAutoRetrievalTimeout: (String verificationId) {},
-      // );
+      await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber:
+            '${authTextControllers.countryCodeController.text + authTextControllers.phoneController.text}',
+        verificationCompleted: (PhoneAuthCredential credential) {},
+        verificationFailed: (FirebaseAuthException e) {},
+        codeSent: (String verificationId, int? resendToken) {
+          SignUpView.verify = verificationId;
+          Navigator.pushNamed(context, otpRoute);
+        },
+        codeAutoRetrievalTimeout: (String verificationId) {},
+      );
       Fluttertoast.showToast(msg: "OTP sent !!");
-      Navigator.pushNamed(context, otpRoute);
 
       // if (phoneNumber.isNotEmpty) {
       //   verifyPhoneNumber(phoneNumber);
