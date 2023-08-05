@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pinput/pinput.dart';
+import 'dart:developer' as devtools show log;
 
 class OTPScreen extends StatefulWidget {
   const OTPScreen({super.key});
@@ -55,7 +56,7 @@ class _OTPScreenState extends State<OTPScreen> {
             },
             pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
             showCursor: true,
-            onCompleted: (pin) => print(pin),
+            onCompleted: (pin) => devtools.log(pin),
           ),
           TextButton(
             onPressed: () {

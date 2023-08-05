@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_controllers.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/signup_login_link.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
@@ -10,7 +7,6 @@ import '../../../constants/color_constants.dart';
 import '../auth_components/login_using.dart';
 import '../auth_components/mobile_input.dart';
 import '../auth_components/mobile_login_btn.dart';
-import 'dart:developer' as devtools show log;
 
 class LoginMobileView extends StatefulWidget {
   const LoginMobileView({super.key});
