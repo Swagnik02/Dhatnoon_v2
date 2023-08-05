@@ -69,5 +69,7 @@ flutter {
 }
 
 dependencies {
+    implementation("com.google.firebase:firebase-auth-ktx")
+    
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
