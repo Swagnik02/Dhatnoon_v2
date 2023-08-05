@@ -1,8 +1,7 @@
+import 'package:dhatnoon_v2/constants/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/color_constants.dart';
-import '../Login/login_mobile_view.dart';
-import '../SignUp/signup_view.dart';
 
 Widget buildSignUpLink(BuildContext context) {
   return Column(
@@ -18,12 +17,8 @@ Widget buildSignUpLink(BuildContext context) {
       ),
       GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const SignUpView(),
-            ),
-          );
+          Navigator.pushNamedAndRemoveUntil(
+              context, signUpRoute, (route) => false);
         },
         child: const Text(
           "Sign Up",
@@ -51,12 +46,8 @@ Widget buildLogInLink(BuildContext context) {
       ),
       GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const LoginMobileView(),
-            ),
-          );
+          Navigator.pushNamedAndRemoveUntil(
+              context, loginRoute, (route) => false);
         },
         child: const Text(
           "Log In",

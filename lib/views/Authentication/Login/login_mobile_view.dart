@@ -24,10 +24,14 @@ class _LoginMobileViewState extends State<LoginMobileView> {
   final TextEditingController _otpController = TextEditingController();
   String? verificationId;
   bool isSignUp = false;
+  @override
+  void initState() {
+    _countryCodeController.text = "+91";
+    super.initState();
+  }
 
   @override
   void dispose() {
-    _countryCodeController.text = "+91";
     _phoneController.dispose();
     _otpController.dispose();
     super.dispose();
