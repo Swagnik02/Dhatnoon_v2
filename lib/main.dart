@@ -18,7 +18,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AuthView(),
+      home: const HomePage(),
       routes: {
         mainRoute: (context) => const MainView(),
         loginRoute: (context) => const LoginMobileView(),
