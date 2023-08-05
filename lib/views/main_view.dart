@@ -1,7 +1,9 @@
-// ignore_for_file: implementation_imports
+// ignore_for_file: implementation_imports, prefer_const_constructors
 
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:dhatnoon_v2/constants/routes.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -13,6 +15,31 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Your App Name'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              signOutAndNavigateToAuth(context);
+            },
+          ),
+        ],
+      ),
+      body: Center(
+        child: Text('Your main content goes here'),
+      ),
+    );
+  }
+}
+
+void signOutAndNavigateToAuth(BuildContext context) async {
+  await FirebaseAuth.instance.signOut();
+  if (context.mounted) {
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      authRoute,
+      (_) => false,
+    );
   }
 }

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
 import 'package:dhatnoon_v2/constants/routes.dart';
 import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_view.dart';
@@ -85,7 +85,10 @@ class _OTPScreenState extends State<OTPScreen> {
                 // Sign the user in (or link) with the credential
                 await auth.signInWithCredential(credential);
                 Navigator.pushNamedAndRemoveUntil(
-                    context, mainRoute, (route) => false);
+                  context,
+                  mainRoute,
+                  (route) => false,
+                );
               } catch (e) {
                 devtools.log('$e');
               }

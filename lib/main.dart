@@ -20,6 +20,7 @@ void main() {
       ),
       home: const HomePage(),
       routes: {
+        authRoute: (context) => const AuthView(),
         mainRoute: (context) => const MainView(),
         loginRoute: (context) => const LoginMobileView(),
         signUpRoute: (context) => const SignUpView(),
