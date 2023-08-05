@@ -14,12 +14,17 @@ class MainView extends StatefulWidget {
   State<MainView> createState() => _MainViewState();
 }
 
+final auth = FirebaseAuth.instance;
+
+User? user = FirebaseAuth.instance.currentUser;
+String? phoneNumber = user?.phoneNumber;
+
 class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your App Name'),
+        title: Text('User: $phoneNumber!'),
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
