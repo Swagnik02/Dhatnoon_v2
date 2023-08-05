@@ -4,13 +4,14 @@ import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:pinput/pinput.dart';
 
 import '../../../constants/color_constants.dart';
 import 'dart:developer' as devtools show log;
 
 import '../../../constants/routes.dart';
+import 'OTP/pinput.dart';
 import 'auth_text_controllers.dart';
-import 'otp.dart';
 
 Widget buildSignUpButton(
     BuildContext context, AuthTextControllers authTextControllers) {
@@ -26,20 +27,11 @@ Widget buildSignUpButton(
         verificationFailed: (FirebaseAuthException e) {},
         codeSent: (String verificationId, int? resendToken) {
           SignUpView.verify = verificationId;
-          // Navigator.pushNamed(context, otpRoute);
-          _showOTPScreen(context);
+          _showTextFieldPopup(context);
         },
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
       Fluttertoast.showToast(msg: "OTP sent !!");
-      // if (phoneNumber.isNotEmpty) {
-      //   verifyPhoneNumber(phoneNumber);
-      // } else {
-      //   // Show a message or dialog indicating that the phone number is empty.
-      //   // You can use a SnackBar or showDialog to display the message.
-      //   Fluttertoast.showToast(msg: "Phone number is empty.");
-      //
-      // }
     },
     style: ElevatedButton.styleFrom(
       minimumSize: const Size(188, 48),
@@ -59,12 +51,64 @@ Widget buildSignUpButton(
   );
 }
 
-void _showOTPScreen(BuildContext context) {
-  showModalBottomSheet(
+void _showTextFieldPopup(BuildContext context) {
+  var code = "";
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  showDialog(
     context: context,
-    isScrollControlled: true,
-    builder: (context) {
-      return const OTPScreen();
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Enter Text'),
+        content: Column(
+          children: [
+            Pinput(
+              length: 6,
+              defaultPinTheme: defaultPinTheme,
+              focusedPinTheme: focusedPinTheme,
+              submittedPinTheme: submittedPinTheme,
+              onChanged: (value) {
+                code = value;
+              },
+              validator: (s) {
+                return s == '2222' ? null : 'Pin is incorrect';
+              },
+              pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
+              showCursor: true,
+              onCompleted: (pin) => devtools.log(pin),
+            ),
+            TextButton(
+              onPressed: () {
+                Fluttertoast.showToast(
+                  msg: "Resend",
+                );
+              },
+              child: const Text('Resend'),
+            ),
+          ],
+        ),
+        actions: [
+          ElevatedButton(
+            onPressed: () async {
+              try {
+                // Create a PhoneAuthCredential with the code
+                PhoneAuthCredential credential = PhoneAuthProvider.credential(
+                    verificationId: SignUpView.verify, smsCode: code);
+
+                // Sign the user in (or link) with the credential
+                await auth.signInWithCredential(credential);
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  mainRoute,
+                  (route) => false,
+                );
+              } catch (e) {
+                devtools.log('$e');
+              }
+            },
+            child: const Text('Verify'),
+          ),
+        ],
+      );
     },
   );
 }

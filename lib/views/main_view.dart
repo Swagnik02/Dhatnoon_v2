@@ -5,6 +5,8 @@ import 'package:dhatnoon_v2/constants/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+// import 'dart:developer' as devtools show log;
+
 class MainView extends StatefulWidget {
   const MainView({super.key});
 
@@ -28,7 +30,15 @@ class _MainViewState extends State<MainView> {
         ],
       ),
       body: Center(
-        child: Text('Your main content goes here'),
+        child: Column(children: [
+          Text('Your main content goes here'),
+          TextButton(
+            onPressed: () {
+              // _showTextFieldPopup(context);
+            },
+            child: Text('Open Popup'),
+          )
+        ]),
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:dhatnoon_v2/views/Authentication/Login/login_mobile_view.dart';
 import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_view.dart';
-import 'package:dhatnoon_v2/views/Authentication/auth_components/otp.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_view.dart';
 import 'package:dhatnoon_v2/views/main_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,7 +23,7 @@ void main() {
         mainRoute: (context) => const MainView(),
         loginRoute: (context) => const LoginMobileView(),
         signUpRoute: (context) => const SignUpView(),
-        otpRoute: (context) => const OTPScreen(),
+        // otpRoute: (context) => const OTPScreen(),
       },
     ),
   );
