@@ -36,6 +36,7 @@ Widget buildMobileInput(AuthTextControllers authTextControllers) {
           ),
           Expanded(
             child: TextField(
+              maxLength: 10,
               controller: authTextControllers.phoneController,
               decoration: InputDecoration(
                   hintText: "Phone",

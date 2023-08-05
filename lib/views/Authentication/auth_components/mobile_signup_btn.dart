@@ -10,6 +10,7 @@ import 'dart:developer' as devtools show log;
 
 import '../../../constants/routes.dart';
 import 'auth_text_controllers.dart';
+import 'otp.dart';
 
 Widget buildSignUpButton(
     BuildContext context, AuthTextControllers authTextControllers) {
@@ -25,12 +26,12 @@ Widget buildSignUpButton(
         verificationFailed: (FirebaseAuthException e) {},
         codeSent: (String verificationId, int? resendToken) {
           SignUpView.verify = verificationId;
-          Navigator.pushNamed(context, otpRoute);
+          // Navigator.pushNamed(context, otpRoute);
+          _showOTPScreen(context);
         },
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
       Fluttertoast.showToast(msg: "OTP sent !!");
-
       // if (phoneNumber.isNotEmpty) {
       //   verifyPhoneNumber(phoneNumber);
       // } else {
@@ -55,5 +56,15 @@ Widget buildSignUpButton(
       'Sign Up',
       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
     ),
+  );
+}
+
+void _showOTPScreen(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (context) {
+      return const OTPScreen();
+    },
   );
 }

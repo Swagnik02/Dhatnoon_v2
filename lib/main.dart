@@ -14,7 +14,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Dhatnoon v2',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
             }
 
           default:
-            return const CircularProgressIndicator();
+            return Container();
         }
       },
     );
