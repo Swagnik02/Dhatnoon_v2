@@ -24,7 +24,7 @@ void main() {
         mainRoute: (context) => const MainView(),
         loginRoute: (context) => const LoginMobileView(),
         signUpRoute: (context) => const SignUpView(),
-        // otpRoute: (context) => const OTPScreen(),
+        regProfRoute: (context) => const ProfRegister(),
       },
     ),
   );
