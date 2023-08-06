@@ -1,5 +1,5 @@
 import 'package:dhatnoon_v2/constants/color_constants.dart';
-import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_buttons/auth_btn_ui.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/CustomTemplates/auth_btn_ui.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_fields.dart';
 import 'package:flutter/material.dart';
 
