@@ -1,4 +1,5 @@
 import 'package:dhatnoon_v2/views/Authentication/Login/login_mobile_view.dart';
+import 'package:dhatnoon_v2/views/Authentication/SignUp/profile_register.dart';
 import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_view.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_view.dart';
 import 'package:dhatnoon_v2/views/main_view.dart';
@@ -17,7 +18,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const ProfRegister(),
       routes: {
         authRoute: (context) => const AuthView(),
         mainRoute: (context) => const MainView(),

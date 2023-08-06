@@ -11,6 +11,8 @@ import '../auth_components/mobile_login_btn.dart';
 class LoginMobileView extends StatefulWidget {
   const LoginMobileView({super.key});
 
+  // static String verify = "";
+
   @override
   State<LoginMobileView> createState() => _LoginMobileViewState();
 }

@@ -10,7 +10,7 @@ import '../auth_components/signup_login_link.dart';
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
 
-  static String verify = "";
+  // static String verify = "";
   @override
   State<SignUpView> createState() => _SignUpViewState();
 }

@@ -2,7 +2,6 @@
 
 import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/constants/routes.dart';
-import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_view.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/OTP/pinput.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ import 'package:pinput/pinput.dart';
 import 'dart:developer' as devtools show log;
 
 class OtpDailogue {
+  static String verify = "";
   void showTextFieldPopup(BuildContext context) {
     var code = "";
     final FirebaseAuth auth = FirebaseAuth.instance;
@@ -58,12 +58,12 @@ class OtpDailogue {
                 ElevatedButton(
                   onPressed: () async {
                     try {
-                      devtools.log(SignUpView.verify);
+                      devtools.log(verify);
                       devtools.log(code);
                       // Create a PhoneAuthCredential with the code
                       PhoneAuthCredential credential =
                           PhoneAuthProvider.credential(
-                              verificationId: SignUpView.verify, smsCode: code);
+                              verificationId: verify, smsCode: code);
 
                       // Sign the user in (or link) with the credential
                       await auth.signInWithCredential(credential);

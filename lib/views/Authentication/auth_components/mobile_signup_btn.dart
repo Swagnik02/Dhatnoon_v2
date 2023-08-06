@@ -1,4 +1,3 @@
-import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -23,7 +22,7 @@ Widget buildSignUpButton(
         codeSent: (String verificationId, int? resendToken) {
           OtpDailogue otpDailogue = OtpDailogue();
           otpDailogue.showTextFieldPopup(context);
-          SignUpView.verify = verificationId;
+          OtpDailogue.verify = verificationId;
         },
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
