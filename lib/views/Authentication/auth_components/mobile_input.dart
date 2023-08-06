@@ -38,10 +38,13 @@ Widget buildMobileInput(AuthTextControllers authTextControllers) {
             child: TextField(
               maxLength: 10,
               controller: authTextControllers.phoneController,
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                  hintText: "Phone",
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10)),
+                hintText: "Phone",
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                counterText: '',
+              ),
               style: TextStyle(
                 color: ColorConstants.authText,
                 fontSize: 18,
