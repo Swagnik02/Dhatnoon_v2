@@ -1,26 +1,44 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
+
+// OnlyBottomCursor
+const borderColor = Color.fromRGBO(30, 60, 87, 1);
 
 final defaultPinTheme = PinTheme(
   width: 56,
   height: 56,
-  textStyle: const TextStyle(
-      fontSize: 20,
-      color: Color.fromRGBO(30, 60, 87, 1),
-      fontWeight: FontWeight.w600),
-  decoration: BoxDecoration(
-    border: Border.all(color: const Color.fromRGBO(234, 239, 243, 1)),
-    borderRadius: BorderRadius.circular(20),
+  textStyle: GoogleFonts.poppins(
+    fontSize: 22,
+    color: const Color.fromRGBO(30, 60, 87, 1),
   ),
+  decoration: const BoxDecoration(),
 );
 
-final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-  border: Border.all(color: const Color.fromRGBO(114, 178, 238, 1)),
-  borderRadius: BorderRadius.circular(8),
+final cursor = Column(
+  mainAxisAlignment: MainAxisAlignment.end,
+  children: [
+    Container(
+      width: 56,
+      height: 3,
+      decoration: BoxDecoration(
+        color: borderColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
+    ),
+  ],
 );
 
-final submittedPinTheme = defaultPinTheme.copyWith(
-  decoration: defaultPinTheme.decoration?.copyWith(
-    color: const Color.fromRGBO(234, 239, 243, 1),
-  ),
+final preFilledWidget = Column(
+  mainAxisAlignment: MainAxisAlignment.end,
+  children: [
+    Container(
+      width: 56,
+      height: 3,
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(8),
+      ),
+    ),
+  ],
 );

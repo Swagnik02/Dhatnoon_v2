@@ -12,21 +12,23 @@ Widget buildSignUpButton(
     BuildContext context, AuthTextControllers authTextControllers) {
   return ElevatedButton(
     onPressed: () async {
-      final String mob = authTextControllers.countryCodeController.text +
-          authTextControllers.phoneController.text;
-      devtools.log('Mobile number: $mob');
-      await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: mob,
-        // '${authTextControllers.countryCodeController.text + authTextControllers.phoneController.text}',
-        verificationCompleted: (PhoneAuthCredential credential) {},
-        verificationFailed: (FirebaseAuthException e) {},
-        codeSent: (String verificationId, int? resendToken) {
-          OtpDailogue otpDailogue = OtpDailogue();
-          otpDailogue.showTextFieldPopup(context);
-          SignUpView.verify = verificationId;
-        },
-        codeAutoRetrievalTimeout: (String verificationId) {},
-      );
+      OtpDailogue otpDailogue = OtpDailogue();
+      otpDailogue.showTextFieldPopup(context);
+      // final String mob = authTextControllers.countryCodeController.text +
+      //     authTextControllers.phoneController.text;
+      // devtools.log('Mobile number: $mob');
+      // await FirebaseAuth.instance.verifyPhoneNumber(
+      //   phoneNumber: mob,
+      //   // '${authTextControllers.countryCodeController.text + authTextControllers.phoneController.text}',
+      //   verificationCompleted: (PhoneAuthCredential credential) {},
+      //   verificationFailed: (FirebaseAuthException e) {},
+      //   codeSent: (String verificationId, int? resendToken) {
+      //     OtpDailogue otpDailogue = OtpDailogue();
+      //     otpDailogue.showTextFieldPopup(context);
+      //     SignUpView.verify = verificationId;
+      //   },
+      //   codeAutoRetrievalTimeout: (String verificationId) {},
+      // );
       Fluttertoast.showToast(msg: "OTP sent !!");
     },
     style: ElevatedButton.styleFrom(

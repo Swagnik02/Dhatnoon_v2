@@ -9,6 +9,7 @@ class ColorConstants {
   static const Color authButtonActive = Color.fromARGB(255, 30, 136, 229);
   static const Color authButtonInActive = Color.fromARGB(255, 204, 231, 255);
   static const Color authText = Color.fromARGB(255, 255, 255, 255);
+  static const Color otpBg = Color.fromARGB(225, 217, 217, 217);
 
   static const Color privacyPolicyText = Color.fromARGB(255, 30, 136, 229);
   //Profile page
