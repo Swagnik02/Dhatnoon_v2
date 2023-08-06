@@ -1,11 +1,10 @@
+import 'package:dhatnoon_v2/constants/color_constants.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_buttons/mobile_signup_btn.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_controllers.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/mobile_input.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/signup_login_link.dart';
 
 import 'package:flutter/material.dart';
-
-import '../../../constants/color_constants.dart';
-import '../auth_components/mobile_input.dart';
-import '../auth_components/mobile_signup_btn.dart';
-import '../auth_components/signup_login_link.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});

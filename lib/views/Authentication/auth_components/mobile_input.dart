@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:flutter/material.dart';
-import '../../../constants/color_constants.dart';
 import 'auth_text_controllers.dart';
 
 Widget buildMobileInput(AuthTextControllers authTextControllers) {

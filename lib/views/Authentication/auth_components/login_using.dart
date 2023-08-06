@@ -1,9 +1,8 @@
+import 'package:dhatnoon_v2/constants/color_constants.dart';
+import 'package:dhatnoon_v2/views/Authentication/Login/login_email_view.dart';
+import 'package:dhatnoon_v2/views/Authentication/Login/login_mobile_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
-import '../../../constants/color_constants.dart';
-import '../Login/login_email_view.dart';
-import '../Login/login_mobile_view.dart';
 
 Widget buildLoginUsingEmail(BuildContext context) {
   return Text.rich(

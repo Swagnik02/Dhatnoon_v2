@@ -1,12 +1,11 @@
+import 'package:dhatnoon_v2/constants/color_constants.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/OTP/otp.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_controllers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../../../constants/color_constants.dart';
 import 'dart:developer' as devtools show log;
-
-import 'OTP/otp.dart';
-import 'auth_text_controllers.dart';
 
 Widget buildLoginButton(
     BuildContext context, AuthTextControllers authTextControllers) {

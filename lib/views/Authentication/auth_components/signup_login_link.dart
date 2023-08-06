@@ -1,7 +1,6 @@
+import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/constants/routes.dart';
 import 'package:flutter/material.dart';
-
-import '../../../constants/color_constants.dart';
 
 Widget buildSignUpLink(BuildContext context) {
   return Column(

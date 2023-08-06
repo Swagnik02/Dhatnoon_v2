@@ -1,4 +1,5 @@
 import 'package:dhatnoon_v2/constants/color_constants.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_fields.dart';
 import 'package:flutter/material.dart';
 
 class ProfRegister extends StatelessWidget {
@@ -6,6 +7,8 @@ class ProfRegister extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _firstName = TextEditingController();
+    TextEditingController _lastName = TextEditingController();
     return Scaffold(
       backgroundColor: ColorConstants.authBackground,
       appBar: AppBar(
@@ -34,83 +37,24 @@ class ProfRegister extends StatelessWidget {
               "FIRST NAME",
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
-            Container(
-              width: 392.72727272727275,
-              height: 40,
-              decoration: const BoxDecoration(
-                border: Border(
-                  top: BorderSide.none,
-                  left: BorderSide.none,
-                  right: BorderSide.none,
-                  bottom: BorderSide.none,
-                ),
-              ),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    '|',
-                    style: TextStyle(color: ColorConstants.authText),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 1.8),
-                    child: SizedBox(
-                      width: 392.72727272727275 - 42.5,
-                      child: TextField(
-                        style: TextStyle(color: ColorConstants.authText),
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 20),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: ColorConstants.authText, width: 1),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: ColorConstants.authText, width: 1),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Text(
-                    '|',
-                    style: TextStyle(color: ColorConstants.authText),
-                  ),
-                ],
-              ),
-            ),
+            AuthTextField(controller: _firstName),
             //LAST NAME
             const SizedBox(height: 27),
-            const Text("Last Name",
-                style: TextStyle(color: Colors.white, fontSize: 15)),
+            const Text(
+              "LAST NAME",
+              style: TextStyle(color: Colors.white, fontSize: 15),
+            ),
             const SizedBox(height: 5),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: "Enter your last name",
-                border: OutlineInputBorder(),
-              ),
-            ),
+            AuthTextField(controller: _lastName),
+
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Add your signup button action here
-                  },
-                  child: const Text("Sign Up"),
-                ),
-                const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    // Add your accept button action here
-                  },
-                  child: const Text("Accept"),
-                ),
-              ],
+            ElevatedButton(
+              onPressed: () {
+                // Add your signup button action here
+              },
+              child: const Text("Sign Up AND Accept"),
             ),
+            const SizedBox(width: 10),
           ],
         ),
       ),
