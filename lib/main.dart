@@ -18,7 +18,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const ProfRegister(),
       routes: {
         authRoute: (context) => const AuthView(),
         mainRoute: (context) => const MainView(),
