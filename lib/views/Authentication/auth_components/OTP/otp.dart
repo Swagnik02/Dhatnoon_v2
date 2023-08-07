@@ -11,6 +11,8 @@ import 'package:pinput/pinput.dart';
 import 'dart:developer' as devtools show log;
 
 class OtpDailogue {
+  static UserCredential? authCReds;
+  static User? mobileUser;
   static String verify = "";
   void showTextFieldPopup(BuildContext context) {
     var code = "";
@@ -72,7 +74,8 @@ class OtpDailogue {
                       final authResult = await FirebaseAuth.instance
                           .signInWithCredential(credential);
                       final user = authResult.user;
-
+                      authCReds = authResult;
+                      mobileUser = FirebaseAuth.instance.currentUser;
                       // Check if the user has a display name set
                       final username =
                           user?.displayName; // Use the null-aware operator (?)

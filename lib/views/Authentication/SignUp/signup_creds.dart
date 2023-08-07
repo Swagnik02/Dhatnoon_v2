@@ -1,11 +1,15 @@
+// ignore_for_file: unused_local_variable, no_leading_underscores_for_local_identifiers, use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/constants/routes.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/CustomTemplates/auth_btn_ui.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/CustomTemplates/auth_text_fields.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/OTP/otp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'dart:developer' as devtools show log;
 
 class SignUpCreds extends StatefulWidget {
   const SignUpCreds({super.key});
@@ -86,72 +90,30 @@ class _SignUpCredsState extends State<SignUpCreds> {
       String password = _password.text;
       String email = _email.text;
 
-      // Create user with email and password using FirebaseAuth
-      UserCredential userCredential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      // mobile uid
+      devtools.log("Mobile User ID: ${FirebaseAuth.instance.currentUser?.uid}");
+      devtools.log("Mobile User: ${OtpDailogue.mobileUser}");
+
+// Create the AuthCredential object
+      AuthCredential emailCreds = EmailAuthProvider.credential(
         email: email,
         password: password,
       );
 
-      // Check if the user already exists (e.g., signed up using phone number)
-      if (userCredential.additionalUserInfo!.isNewUser) {
-        // New user, no need to link accounts
-        // Continue with the code to store user data
-        String uid = userCredential.user!.uid;
-        DocumentReference docRef =
-            FirebaseFirestore.instance.collection('Users').doc(uid);
+      UserCredential? userCredential =
+          await OtpDailogue.mobileUser?.linkWithCredential(emailCreds);
 
-        // Update the document with the new data
-        await docRef.set({
-          'Email': email,
-        }).then((_) {
-          // Data successfully written to the database
-          Fluttertoast.showToast(msg: "Data updated successfully!");
-        }).catchError((error) {
-          Fluttertoast.showToast(msg: "Failed to update data: $error");
-        });
+      final emailUID = FirebaseAuth.instance.currentUser?.uid;
+      devtools.log("EMAIL User ID: $emailUID");
+      devtools.log("EMAIL AUTH CREDS: $emailCreds");
+      devtools.log("EMAIL USER: ${FirebaseAuth.instance.currentUser}");
 
-        // Navigate to the home screen
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          regProfRoute,
-          (route) => false,
-        );
-      } else {
-        // Existing user, link email credentials to the existing account
-        User user = FirebaseAuth.instance.currentUser!;
-        AuthCredential credential = EmailAuthProvider.credential(
-          email: email,
-          password: password,
-        );
-
-        user.linkWithCredential(credential).then((userCred) {
-          // Successfully linked email credentials to the existing account
-          String uid = userCred.user!.uid;
-          DocumentReference docRef =
-              FirebaseFirestore.instance.collection('Users').doc(uid);
-
-          // Update the document with the new data
-          docRef.set({
-            'Email': email,
-          }).then((_) {
-            // Data successfully written to the database
-            Fluttertoast.showToast(msg: "Data updated successfully!");
-          }).catchError((error) {
-            Fluttertoast.showToast(msg: "Failed to update data: $error");
-          });
-
-          // Navigate to the home screen
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            regProfRoute,
-            (route) => false,
-          );
-        }).catchError((error) {
-          // Handle error if linking fails
-          Fluttertoast.showToast(msg: "Failed to link email: $error");
-        });
-      }
+      // Navigate to the home screen
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        regProfRoute,
+        (route) => false,
+      );
     } catch (error) {
       Fluttertoast.showToast(msg: "Failed to sign up: $error");
     }

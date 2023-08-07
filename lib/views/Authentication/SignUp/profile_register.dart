@@ -93,6 +93,9 @@ class ProfRegister extends StatelessWidget {
 
               // Update the document with the new data
               await docRef.set({
+                'UserName': userName,
+                'Email': user.email,
+                'Mobile': user.phoneNumber,
                 'FirstName': firstName,
                 'LastName': lastName,
               }).then((_) {
