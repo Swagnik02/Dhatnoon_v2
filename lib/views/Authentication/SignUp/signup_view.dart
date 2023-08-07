@@ -2,6 +2,7 @@ import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_buttons/mobile_signup_btn.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_controllers.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/mobile_input.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/privacy_t&c.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/signup_login_link.dart';
 
 import 'package:flutter/material.dart';
@@ -72,8 +73,8 @@ class _SignUpViewState extends State<SignUpView> {
                 ],
               ),
               const SizedBox(height: 20),
-              // buildLoginUsingEmail(context), privacy t&C
-              const SizedBox(height: 111),
+              buildPrivacyAndTermsText(),
+              const SizedBox(height: 64),
               buildSignUpButton(context, authTextControllers),
               const SizedBox(height: 16),
               buildLogInLink(context),
