@@ -69,7 +69,7 @@ class OtpDailogue {
                       await auth.signInWithCredential(credential);
                       Navigator.pushNamedAndRemoveUntil(
                         context,
-                        mainRoute,
+                        regProfRoute,
                         (route) => false,
                       );
                     } catch (e) {

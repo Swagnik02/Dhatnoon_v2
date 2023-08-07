@@ -1,8 +1,9 @@
 import 'package:dhatnoon_v2/views/Authentication/Login/login_mobile_view.dart';
 import 'package:dhatnoon_v2/views/Authentication/SignUp/profile_register.dart';
+import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_creds.dart';
 import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_view.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_view.dart';
-import 'package:dhatnoon_v2/views/main_view.dart';
+import 'package:dhatnoon_v2/views/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -18,20 +19,21 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ProfRegister(),
+      home: const FireInit(),
       routes: {
         authRoute: (context) => const AuthView(),
-        mainRoute: (context) => const MainView(),
+        homeRoute: (context) => const HomePage(),
         loginRoute: (context) => const LoginMobileView(),
         signUpRoute: (context) => const SignUpView(),
+        signUpCredRoute: (context) => const SignUpCreds(),
         regProfRoute: (context) => const ProfRegister(),
       },
     ),
   );
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class FireInit extends StatelessWidget {
+  const FireInit({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class HomePage extends StatelessWidget {
           case ConnectionState.done:
             final user = FirebaseAuth.instance.currentUser;
             if (user != null) {
-              return const MainView();
+              return const HomePage();
             } else {
               return const AuthView();
             }

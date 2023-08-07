@@ -44,6 +44,7 @@ dependencies:
   fluttertoast: ^8.2.2
   pinput: ^3.0.0
   google_fonts: ^5.1.0
+  cloud_firestore: ^4.8.4
 
 dev_dependencies:
   flutter_test:

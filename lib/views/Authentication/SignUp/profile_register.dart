@@ -1,5 +1,9 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dhatnoon_v2/constants/color_constants.dart';
-import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_fields.dart';
+import 'package:dhatnoon_v2/constants/routes.dart';
+import 'package:dhatnoon_v2/views/Authentication/auth_components/CustomTemplates/auth_text_fields.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -12,7 +16,6 @@ class ProfRegister extends StatelessWidget {
     TextEditingController _userName = TextEditingController();
     TextEditingController _firstName = TextEditingController();
     TextEditingController _lastName = TextEditingController();
-    // final auth = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
       backgroundColor: ColorConstants.authBackground,
@@ -63,26 +66,52 @@ class ProfRegister extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Fluttertoast.showToast(msg: "Your message here");
+        onPressed: () async {
+          // Get the data from the text fields
+          String firstName = _firstName.text;
+          String lastName = _lastName.text;
+          String userName = _userName.text;
+
+          // Update the user's displayName in Firebase Auth
+          try {
+            User? user = FirebaseAuth.instance.currentUser;
+            if (user != null) {
+              // Update the display name
+              await user.updateDisplayName(userName);
+
+              Fluttertoast.showToast(msg: "username: $user.displayName ");
+
+              // Display a success message
+              Fluttertoast.showToast(msg: "Username updated successfully!");
+
+              DocumentReference docRef =
+                  FirebaseFirestore.instance.collection('Users').doc();
+
+              await docRef.set({
+                'FirstName': firstName,
+                'LastName': lastName,
+              }).then((_) {
+                // Data successfully written to database
+                Fluttertoast.showToast(msg: "Data updated successfully!");
+              }).catchError((error) {
+                Fluttertoast.showToast(msg: "Failed to update data: $error");
+                // Handle any errors that occurred while writing to the database
+              });
+            } else {
+              Fluttertoast.showToast(
+                  msg: "User not found. Please log in again.");
+            }
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              homeRoute,
+              (route) => false,
+            );
+          } catch (error) {
+            Fluttertoast.showToast(msg: "Failed to update username: $error");
+          }
         },
         child: const Icon(Icons.arrow_forward_ios_sharp),
       ),
     );
   }
 }
-
-
-
-
-            // Column(
-
-            //   children: [
-            //     AuthBtnUI(
-            //       onPressed: () {
-            //         // Add your signup button action here
-            //       },
-            //       text: 'Sign Up & Accept',
-            //     ),
-            //   ],
-            // ),

@@ -1,5 +1,6 @@
 const authRoute = '/auth/';
-const mainRoute = '/main-page/';
+const homeRoute = '/home-page/';
 const loginRoute = '/login/';
 const signUpRoute = '/sign-up/';
+const signUpCredRoute = '/sign-up-credentials/';
 const regProfRoute = '/registration-profile/';
