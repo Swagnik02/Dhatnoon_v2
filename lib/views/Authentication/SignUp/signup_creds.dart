@@ -1,6 +1,5 @@
 // ignore_for_file: unused_local_variable, no_leading_underscores_for_local_identifiers, use_build_context_synchronously
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/constants/routes.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/CustomTemplates/auth_btn_ui.dart';
