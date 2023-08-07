@@ -41,6 +41,14 @@ class _HomePageState extends State<HomePage> {
             fontSize: 16,
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              signOutAndNavigateToAuth(context);
+            },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -124,3 +132,38 @@ void signOutAndNavigateToAuth(BuildContext context) async {
     );
   }
 }
+
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: Text('HomePage'),
+    //     actions: [
+    //       IconButton(
+    //         icon: Icon(Icons.logout),
+    //         onPressed: () {
+    //           signOutAndNavigateToAuth(context);
+    //         },
+    //       ),
+    //     ],
+    //   ),
+    //   body: Center(
+    //     child: Column(children: [
+    //       SizedBox(height: 50),
+    //       Text('Account Details'),
+    //       Text('${user?.uid}'),
+    //       Text('${user?.displayName}'),
+    //       Text('${user?.phoneNumber}'),
+    //       Text('${user?.email}'),
+    //       TextButton(
+    //         onPressed: () {
+    //           if (context.mounted) {
+    //             Navigator.of(context).pushNamedAndRemoveUntil(
+    //               regProfRoute,
+    //               (_) => false,
+    //             );
+    //           }
+    //         },
+    //         child: Text('Open Popup'),
+    //       )
+    //     ]),
+    //   ),
+    // );
