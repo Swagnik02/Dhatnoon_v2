@@ -93,7 +93,7 @@ class OtpDailogue {
                         });
                         Navigator.pushNamedAndRemoveUntil(
                           context,
-                          regProfRoute,
+                          signUpCredRoute,
                           (route) => false,
                         );
                       }

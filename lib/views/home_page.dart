@@ -103,6 +103,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const Spacer(),
+                Text('${user?.uid}'),
+                Text('${user?.displayName}'),
+                Text('${user?.email}'),
+                Text('${user?.phoneNumber}'),
+                Text('Verification status: ${user?.emailVerified}'),
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
