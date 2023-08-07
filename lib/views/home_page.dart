@@ -14,17 +14,21 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-final auth = FirebaseAuth.instance;
-
-User? user = FirebaseAuth.instance.currentUser;
-String? phoneNumber = user?.phoneNumber;
-
 class _HomePageState extends State<HomePage> {
+  User? user; // Move the user variable inside the state class
+
+  @override
+  void initState() {
+    super.initState();
+    user =
+        FirebaseAuth.instance.currentUser; // Initialize the user in initState
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User: $user.displayName'),
+        title: Text('HomePage'),
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
@@ -36,10 +40,20 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Column(children: [
-          Text('Your main content goes here'),
+          SizedBox(height: 50),
+          Text('Account Details'),
+          Text('${user?.uid}'),
+          Text('${user?.displayName}'),
+          Text('${user?.phoneNumber}'),
+          Text('${user?.email}'),
           TextButton(
             onPressed: () {
-              // _showTextFieldPopup(context);
+              if (context.mounted) {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  regProfRoute,
+                  (_) => false,
+                );
+              }
             },
             child: Text('Open Popup'),
           )

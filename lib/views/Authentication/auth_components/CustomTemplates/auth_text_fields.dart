@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 class AuthTextField extends StatelessWidget {
   final TextEditingController controller;
 
-  AuthTextField({required this.controller});
+  const AuthTextField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: FractionalOffset.center,
       width: 392.72727272727275,
       height: 40,
       decoration: const BoxDecoration(
@@ -20,7 +21,7 @@ class AuthTextField extends StatelessWidget {
         ),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [

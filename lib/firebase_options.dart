@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -47,30 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD9ltcKKAXuj4H5KXhoGN_JKztsoPEBTtg',
-    appId: '1:694755082868:web:1c07322e99b2df722f0721',
-    messagingSenderId: '694755082868',
-    projectId: 'dhatnoon-backend',
-    authDomain: 'dhatnoon-backend.firebaseapp.com',
-    storageBucket: 'dhatnoon-backend.appspot.com',
+    apiKey: 'AIzaSyComoBlz6VHN0PBa5Ntl0G7Vy3t2iLSJ4A',
+    appId: '1:226463894084:web:89fef87255e6de841f0a11',
+    messagingSenderId: '226463894084',
+    projectId: 'dhatnoon-rebuild',
+    authDomain: 'dhatnoon-rebuild.firebaseapp.com',
+    storageBucket: 'dhatnoon-rebuild.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBkDWlnoMrYE8sLX-hfUdNNNZjJ6Sc-5xU',
-    appId: '1:694755082868:android:e9988bc8260449332f0721',
-    messagingSenderId: '694755082868',
-    projectId: 'dhatnoon-backend',
-    storageBucket: 'dhatnoon-backend.appspot.com',
+    apiKey: 'AIzaSyCjiE7771l_cSWsC2no6BElGObPM2vH0BE',
+    appId: '1:226463894084:android:3699a011b89e22621f0a11',
+    messagingSenderId: '226463894084',
+    projectId: 'dhatnoon-rebuild',
+    storageBucket: 'dhatnoon-rebuild.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBPf_vUqb1y8S5xf6w-Ah77-e5_ZlimrpY',
-    appId: '1:694755082868:ios:0a1a9e5e7a063c752f0721',
-    messagingSenderId: '694755082868',
-    projectId: 'dhatnoon-backend',
-    storageBucket: 'dhatnoon-backend.appspot.com',
-    androidClientId: '694755082868-pbs6gq1374jdqitv4jraasqif67o6gcl.apps.googleusercontent.com',
-    iosClientId: '694755082868-99tk2ueus27k3if7peff8lrlehg3v4cg.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAFEajrQFSJEr625pHaKILZL40LqnxWqq8',
+    appId: '1:226463894084:ios:e532ea7f7361fc411f0a11',
+    messagingSenderId: '226463894084',
+    projectId: 'dhatnoon-rebuild',
+    storageBucket: 'dhatnoon-rebuild.appspot.com',
+    iosClientId: '226463894084-q3agpl9lmakco0u5u83cqs7e7t1rcpqi.apps.googleusercontent.com',
+    iosBundleId: 'com.example.dhatnoonV2',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyAFEajrQFSJEr625pHaKILZL40LqnxWqq8',
+    appId: '1:226463894084:ios:e532ea7f7361fc411f0a11',
+    messagingSenderId: '226463894084',
+    projectId: 'dhatnoon-rebuild',
+    storageBucket: 'dhatnoon-rebuild.appspot.com',
+    iosClientId: '226463894084-q3agpl9lmakco0u5u83cqs7e7t1rcpqi.apps.googleusercontent.com',
     iosBundleId: 'com.example.dhatnoonV2',
   );
 }

@@ -1,121 +1,34 @@
 {
   "project_info": {
-    "project_number": "694755082868",
-    "project_id": "dhatnoon-backend",
-    "storage_bucket": "dhatnoon-backend.appspot.com"
+    "project_number": "226463894084",
+    "project_id": "dhatnoon-rebuild",
+    "storage_bucket": "dhatnoon-rebuild.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:694755082868:android:3ff3fe5c5ebc21752f0721",
-        "android_client_info": {
-          "package_name": "com.example.components"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "694755082868-pbs6gq1374jdqitv4jraasqif67o6gcl.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.components",
-            "certificate_hash": "02caeb2f579e9589183e9e10f51fa2785537a537"
-          }
-        },
-        {
-          "client_id": "694755082868-eee6h743rlbg9rsn4up64i2kodi5ucgo.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBkDWlnoMrYE8sLX-hfUdNNNZjJ6Sc-5xU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "694755082868-eee6h743rlbg9rsn4up64i2kodi5ucgo.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "694755082868-99tk2ueus27k3if7peff8lrlehg3v4cg.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.dhatnoonV2"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:694755082868:android:176d65eba4ae441e2f0721",
-        "android_client_info": {
-          "package_name": "com.example.cost_application"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "694755082868-eee6h743rlbg9rsn4up64i2kodi5ucgo.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBkDWlnoMrYE8sLX-hfUdNNNZjJ6Sc-5xU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "694755082868-eee6h743rlbg9rsn4up64i2kodi5ucgo.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "694755082868-99tk2ueus27k3if7peff8lrlehg3v4cg.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.dhatnoonV2"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:694755082868:android:e9988bc8260449332f0721",
+        "mobilesdk_app_id": "1:226463894084:android:3699a011b89e22621f0a11",
         "android_client_info": {
           "package_name": "com.example.dhatnoon_v2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "694755082868-eee6h743rlbg9rsn4up64i2kodi5ucgo.apps.googleusercontent.com",
+          "client_id": "226463894084-finr60cmo9j9uvo2hreii7i7rc1ech86.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBkDWlnoMrYE8sLX-hfUdNNNZjJ6Sc-5xU"
+          "current_key": "AIzaSyCjiE7771l_cSWsC2no6BElGObPM2vH0BE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "694755082868-eee6h743rlbg9rsn4up64i2kodi5ucgo.apps.googleusercontent.com",
+              "client_id": "226463894084-finr60cmo9j9uvo2hreii7i7rc1ech86.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "694755082868-99tk2ueus27k3if7peff8lrlehg3v4cg.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.dhatnoonV2"
-              }
             }
           ]
         }

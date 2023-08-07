@@ -79,33 +79,40 @@ class ProfRegister extends StatelessWidget {
               // Update the display name
               await user.updateDisplayName(userName);
 
-              Fluttertoast.showToast(msg: "username: $user.displayName ");
+              Fluttertoast.showToast(msg: "username: ${user.displayName}");
 
               // Display a success message
               Fluttertoast.showToast(msg: "Username updated successfully!");
 
-              DocumentReference docRef =
-                  FirebaseFirestore.instance.collection('Users').doc();
+              // Get the user's UID
+              String uid = user.uid;
 
+              // Create a reference to the Firestore document with the user's UID as the document ID
+              DocumentReference docRef =
+                  FirebaseFirestore.instance.collection('Users').doc(uid);
+
+              // Update the document with the new data
               await docRef.set({
                 'FirstName': firstName,
                 'LastName': lastName,
               }).then((_) {
-                // Data successfully written to database
+                // Data successfully written to the database
                 Fluttertoast.showToast(msg: "Data updated successfully!");
               }).catchError((error) {
                 Fluttertoast.showToast(msg: "Failed to update data: $error");
                 // Handle any errors that occurred while writing to the database
               });
+
+              // Navigate to the home screen
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                homeRoute,
+                (route) => false,
+              );
             } else {
               Fluttertoast.showToast(
                   msg: "User not found. Please log in again.");
             }
-            Navigator.pushNamedAndRemoveUntil(
-              context,
-              homeRoute,
-              (route) => false,
-            );
           } catch (error) {
             Fluttertoast.showToast(msg: "Failed to update username: $error");
           }
