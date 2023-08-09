@@ -71,7 +71,15 @@ class _LoginEmailViewState extends State<LoginEmailView> {
                         labelText: "PASSWORD",
                         labelStyle: TextStyle(color: ColorConstants.authText)),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 25),
+                  GestureDetector(
+                    onTap: () => resetPassword(e.text),
+                    child: const Text(
+                      "Forgot Your Password?",
+                      style: TextStyle(
+                          color: ColorConstants.authText, fontSize: 18),
+                    ),
+                  ),
                   buildLoginUsingMobile(context),
                   const SizedBox(height: 111),
                   ElevatedButton(
@@ -140,6 +148,15 @@ class _LoginEmailViewState extends State<LoginEmailView> {
           showToast("Incorrect password!");
         }
       }
+    }
+  }
+
+  Future<void> resetPassword(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      showToast("Password Reset Email sent!");
+    } catch (e) {
+      // Handle password reset errors
     }
   }
 

@@ -43,7 +43,7 @@ Widget buildLoginUsingMobile(BuildContext context) {
         TextSpan(
           text: 'Mobile',
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 23,
             color: ColorConstants.privacyPolicyText,
           ),
           recognizer: TapGestureRecognizer()
@@ -59,7 +59,7 @@ Widget buildLoginUsingMobile(BuildContext context) {
         ),
       ],
       style: const TextStyle(
-        fontSize: 16,
+        fontSize: 23,
         color: ColorConstants.authText,
       ),
     ),
