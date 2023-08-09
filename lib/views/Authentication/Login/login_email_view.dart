@@ -25,13 +25,6 @@ class _LoginEmailViewState extends State<LoginEmailView> {
   }
 
   @override
-  void dispose() {
-    AuthTextControllers.emailController.dispose();
-    AuthTextControllers.passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstants.authBackground,
@@ -140,6 +133,13 @@ class _LoginEmailViewState extends State<LoginEmailView> {
       );
       // Login successful
       showToast("login successful!");
+      // Sign in (or link) the user with the credential
+      User? user = userCredential.user;
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        homeRoute,
+        (route) => false,
+      );
     } catch (e) {
       if (e is FirebaseAuthException) {
         if (e.code == 'user-not-found') {
@@ -163,10 +163,17 @@ class _LoginEmailViewState extends State<LoginEmailView> {
   static void showToast(String message) {
     Fluttertoast.showToast(
         msg: message,
-        toastLength: Toast.LENGTH_LONG,
+        toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         backgroundColor: Colors.white,
         textColor: Colors.black,
         fontSize: 20);
+  }
+
+  @override
+  void dispose() {
+    p.dispose(); // Dispose the password controller
+    e.dispose(); // Dispose the email controller
+    super.dispose();
   }
 }
