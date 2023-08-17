@@ -6,6 +6,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_controllers.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:dhatnoon_v2/constants/routes.dart';
+import '../auth_components/CustomTemplates/auth_text_fields.dart';
+import '../auth_components/CustomTemplates/auth_btn_ui.dart';
 
 class LoginEmailView extends StatefulWidget {
   const LoginEmailView({super.key});
@@ -16,8 +18,8 @@ class LoginEmailView extends StatefulWidget {
 
 class _LoginEmailViewState extends State<LoginEmailView> {
   AuthTextControllers authTextControllers = AuthTextControllers();
-  TextEditingController p = AuthTextControllers.passwordController;
-  TextEditingController e = AuthTextControllers.emailController;
+  late TextEditingController p = authTextControllers.passwordController;
+  late TextEditingController e = authTextControllers.emailController;
 
   @override
   void initState() {
@@ -32,11 +34,11 @@ class _LoginEmailViewState extends State<LoginEmailView> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const SizedBox(height: 150),
               const Text(
                 'Log In',
+                textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 32,
                   color: ColorConstants.authText,
@@ -45,77 +47,45 @@ class _LoginEmailViewState extends State<LoginEmailView> {
               ),
               const SizedBox(height: 50),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 30),
-                    child: TextFormField(
-                      style: const TextStyle(color: ColorConstants.authText),
-                      controller: e,
-                      decoration: const InputDecoration(
-                          labelText: "EMAIL",
-                          labelStyle:
-                              TextStyle(color: ColorConstants.authText)),
-                    ),
-                  ),
-                  TextFormField(
-                    style: const TextStyle(color: ColorConstants.authText),
-                    controller: p,
-                    decoration: const InputDecoration(
-                        labelText: "PASSWORD",
-                        labelStyle: TextStyle(color: ColorConstants.authText)),
-                  ),
-                  const SizedBox(height: 25),
-                  GestureDetector(
-                    onTap: () => resetPassword(e.text),
-                    child: const Text(
-                      "Forgot Your Password?",
-                      style: TextStyle(
-                          color: ColorConstants.authText, fontSize: 18),
-                    ),
-                  ),
-                  buildLoginUsingMobile(context),
-                  const SizedBox(height: 111),
-                  ElevatedButton(
-                    onPressed: () {
-                      loginUser(e.text, p.text);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(188, 48),
-                      backgroundColor: ColorConstants.authButtonActive,
-                      elevation: 6,
-                      textStyle: const TextStyle(
-                          fontSize: 14, color: ColorConstants.authText),
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(50),
-                        ),
-                      ),
-                    ),
-                    child: const Text(
-                      'Log In',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  buildSignUpLink(context),
-                  const SizedBox(height: 56),
                   const Text(
-                    "Log In or Sign Up",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: ColorConstants.authText,
-                    ),
+                    "EMAIL",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(25.0),
-                    child: Image.asset(
-                      'assets/google-logo.png',
-                      width: 45,
-                      height: 45,
-                    ),
+                  AuthTextField(controller: e),
+                  const SizedBox(height: 32),
+                  const Text(
+                    "PASSWORD",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
+                  AuthTextField(controller: p),
                 ],
+              ),
+              const SizedBox(height: 25),
+              GestureDetector(
+                onTap: () => resetPassword(e.text),
+                child: const Text(
+                  "Forgot Your Password?",
+                  style:
+                      TextStyle(color: ColorConstants.authText, fontSize: 18),
+                ),
+              ),
+              buildLoginUsingMobile(context),
+              const SizedBox(height: 111),
+              AuthBtnUI(
+                text: 'Log In',
+                onPressed: () {
+                  loginUser(e.text, p.text);
+                },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Image.asset(
+                  'assets/google-logo.png',
+                  width: 45,
+                  height: 45,
+                ),
               ),
             ],
           ),
