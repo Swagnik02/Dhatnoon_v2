@@ -89,6 +89,7 @@ class _SignUpCredsState extends State<SignUpCreds> {
       String password = _password.text;
       String email = _email.text;
 
+      registerUser(password, email);
       // mobile uid
       devtools.log("Mobile User ID: ${FirebaseAuth.instance.currentUser?.uid}");
       devtools.log("Mobile User: ${OtpDailogue.mobileUser}");
@@ -115,6 +116,24 @@ class _SignUpCredsState extends State<SignUpCreds> {
       );
     } catch (error) {
       Fluttertoast.showToast(msg: "Failed to sign up: $error");
+    }
+  }
+
+  Future<void> registerUser(String email, String password) async {
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      // Registration successful
+      User? user = userCredential.user;
+      print('Registered user: ${user?.uid}');
+    } catch (e) {
+      // Handle registration errors
+      if (e is FirebaseAuthException) {
+        print('Registration error: ${e.message}');
+      }
     }
   }
 }
