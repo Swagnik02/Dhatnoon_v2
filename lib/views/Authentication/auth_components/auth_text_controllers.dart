@@ -5,4 +5,6 @@ class AuthTextControllers {
       TextEditingController(text: "+91");
   TextEditingController phoneController = TextEditingController();
   TextEditingController otpController = TextEditingController();
+   TextEditingController emailController = TextEditingController();
+   TextEditingController passwordController = TextEditingController();
 }
