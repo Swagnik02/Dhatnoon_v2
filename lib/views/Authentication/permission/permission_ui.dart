@@ -8,7 +8,7 @@ import '../../../widgets.dart';
 class PermissionUI extends StatelessWidget {
   final Model model;
 
-  PermissionUI({Key? key, required this.model}) : super(key: key);
+  const PermissionUI({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

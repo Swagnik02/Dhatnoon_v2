@@ -29,23 +29,8 @@ class _PermissionState extends State<Permission> {
     return ChangeNotifierProvider.value(
         value: _model,
         child: Consumer<Model>(builder: (context, model, child) {
-          Widget widget;
-          switch (model.permissionType) {
-            case PermissionType.getPermission:
-              widget = PermissionUI(model: model);
-              break;
-            case PermissionType.noPermission:
-              widget = PermissionUI(model: model);
-              break;
-            case PermissionType.noPermissionPermanent:
-              widget = PermissionUI(model: model);
-              break;
-            case PermissionType.permission:
-              widget = PermissionUI(model: model);
-              break;
-          }
           return Scaffold(
-            body: widget,
+            body: PermissionUI(model: model),
           );
         }));
   }
