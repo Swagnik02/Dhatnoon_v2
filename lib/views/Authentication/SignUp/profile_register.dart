@@ -109,7 +109,7 @@ class ProfRegister extends StatelessWidget {
               // Navigate to the home screen
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                homeRoute,
+                permRoute,
                 (route) => false,
               );
             } else {

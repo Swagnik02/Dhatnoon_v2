@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/login_using.dart';
-import 'package:dhatnoon_v2/views/Authentication/auth_components/signup_login_link.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_controllers.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import '../../../widgets.dart';
 import 'package:dhatnoon_v2/constants/routes.dart';
 import '../auth_components/CustomTemplates/auth_text_fields.dart';
 import '../auth_components/CustomTemplates/auth_btn_ui.dart';
@@ -128,16 +127,6 @@ class _LoginEmailViewState extends State<LoginEmailView> {
     } catch (e) {
       // Handle password reset errors
     }
-  }
-
-  static void showToast(String message) {
-    Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        backgroundColor: Colors.white,
-        textColor: Colors.black,
-        fontSize: 20);
   }
 
   @override
