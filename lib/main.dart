@@ -4,7 +4,6 @@ import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_creds.dart';
 import 'package:dhatnoon_v2/views/Authentication/SignUp/signup_view.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_view.dart';
 import 'package:dhatnoon_v2/views/Authentication/permission/permission.dart';
-import 'package:dhatnoon_v2/views/Home/pages.dart';
 import 'package:dhatnoon_v2/views/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -49,7 +48,7 @@ class FireInit extends StatelessWidget {
           case ConnectionState.done:
             final user = FirebaseAuth.instance.currentUser;
             if (user != null) {
-              return const HomePage();
+              return const UserRequest();
             } else {
               return const AuthView();
             }
