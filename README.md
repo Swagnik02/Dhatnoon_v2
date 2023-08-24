@@ -23,6 +23,9 @@ People may be concerned about the misuse of this app. To address these concerns,
 
 ## Doccumention: 
 - [GDocs](https://docs.google.com/document/d/1rxWwlF34suj7pxv-bKW-gU-nNxZ164mqj1UeI9bRRo4/edit?usp=sharing)
+  
+## UI
+- [UI](https://www.figma.com/file/QNo3ihct2wcDXByw2E0iwO/Dhatnoon-v2-ui?type=design&mode=design&t=KnseelmQkuKkAaF3-1)
 
 ## Getting Started
 
