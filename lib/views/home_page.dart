@@ -1,132 +1,69 @@
-// ignore_for_file: implementation_imports, prefer_const_constructors
-
 import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/constants/routes.dart';
-import 'package:dhatnoon_v2/views/Authentication/homePage/send_req_view.dart';
-
+import 'package:dhatnoon_v2/views/Home/accept_request.dart';
+import 'package:dhatnoon_v2/views/Home/home.dart';
+import 'package:dhatnoon_v2/views/Home/request.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-// import 'dart:developer' as devtools show log;
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class UserRequest extends StatefulWidget {
+  const UserRequest({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<UserRequest> createState() => _UserRequestState();
 }
 
-class _HomePageState extends State<HomePage> {
-  User? user; // Move the user variable inside the state class
-
-  @override
-  void initState() {
-    super.initState();
-    user =
-        FirebaseAuth.instance.currentUser; // Initialize the user in initState
-  }
+class _UserRequestState extends State<UserRequest> {
+  User? user = FirebaseAuth.instance.currentUser;
+  int currentIndex = 0;
+  List pages = [const Home(), const SendRequest(), const AcceptRequest()];
 
   @override
   Widget build(BuildContext context) {
-    var _selectedNavIndex = 0;
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: ColorConstants.authBackground,
       drawer: const Drawer(),
       appBar: AppBar(
-        backgroundColor: ColorConstants.authBackground,
+        backgroundColor: Colors.black12,
         title: Text(
-          '${user?.displayName}',
-          style: TextStyle(
-            color: Colors.white,
+          '${user?.displayName}'.toUpperCase(),
+          style: const TextStyle(
+            color: ColorConstants.authText,
             fontSize: 16,
           ),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               signOutAndNavigateToAuth(context);
             },
           ),
         ],
       ),
+      body: pages[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black12,
+          onTap: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          currentIndex: currentIndex,
+          selectedItemColor: ColorConstants.authButtonActive,
+          unselectedItemColor: ColorConstants.authText,
+          items: const [
+            BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.send), label: "Send Request"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.add_task_rounded), label: "Accept Request")
+          ]),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
+        backgroundColor: ColorConstants.authButtonActive,
+        foregroundColor: ColorConstants.authText,
         child: const Icon(Icons.add),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) {
-          setState(() {
-            _selectedNavIndex = value;
-          });
-          if (_selectedNavIndex == 0) {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HomePage(),
-                ));
-          } else if (_selectedNavIndex == 1) {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SendReqView(),
-                ));
-          }
-        },
-        currentIndex: _selectedNavIndex,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.send),
-            label: 'Send Request',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_task_rounded),
-            label: 'Accept Request',
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-            child: Row(
-              children: [
-                const Text(
-                  "Users",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const Spacer(),
-                Column(
-                  children: [
-                    Text('uid: ${user?.uid}'),
-                    Text('User: ${user?.displayName}'),
-                    Text('mail: ${user?.email}'),
-                    Text('mob: ${user?.phoneNumber}'),
-                    Text('Verification status: ${user?.emailVerified}'),
-                  ],
-                ),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: Icon(
-                    Icons.search,
-                    color: Colors.grey[800],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }

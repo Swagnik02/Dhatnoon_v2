@@ -23,7 +23,7 @@ void main() {
       home: const FireInit(),
       routes: {
         authRoute: (context) => const AuthView(),
-        homeRoute: (context) => const HomePage(),
+        homeRoute: (context) => const UserRequest(),
         loginRoute: (context) => const LoginMobileView(),
         signUpRoute: (context) => const SignUpView(),
         signUpCredRoute: (context) => const SignUpCreds(),
@@ -48,7 +48,7 @@ class FireInit extends StatelessWidget {
           case ConnectionState.done:
             final user = FirebaseAuth.instance.currentUser;
             if (user != null) {
-              return const HomePage();
+              return const UserRequest();
             } else {
               return const AuthView();
             }
