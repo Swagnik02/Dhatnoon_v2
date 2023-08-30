@@ -29,7 +29,7 @@ class ProfRegister extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 20, 16, 40),
+        padding: const EdgeInsets.fromLTRB(16.0, 20, 6, 40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -89,7 +89,7 @@ class ProfRegister extends StatelessWidget {
 
               // Create a reference to the Firestore document with the user's UID as the document ID
               DocumentReference docRef =
-                  FirebaseFirestore.instance.collection('Users').doc(uid);
+              FirebaseFirestore.instance.collection('Users').doc(uid);
 
               // Update the document with the new data
               await docRef.set({
@@ -110,7 +110,7 @@ class ProfRegister extends StatelessWidget {
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 permRoute,
-                (route) => false,
+                    (route) => false,
               );
             } else {
               Fluttertoast.showToast(

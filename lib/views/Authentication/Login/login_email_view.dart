@@ -1,3 +1,4 @@
+import 'package:dhatnoon_v2/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/login_using.dart';
@@ -5,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_controllers.dart';
 import '../../../widgets.dart';
 import 'package:dhatnoon_v2/constants/routes.dart';
+import '../SignUp/google_signup.dart';
 import '../auth_components/CustomTemplates/auth_text_fields.dart';
 import '../auth_components/CustomTemplates/auth_btn_ui.dart';
 
@@ -67,7 +69,7 @@ class _LoginEmailViewState extends State<LoginEmailView> {
                 child: const Text(
                   "Forgot Your Password?",
                   style:
-                      TextStyle(color: ColorConstants.authText, fontSize: 18),
+                  TextStyle(color: ColorConstants.authText, fontSize: 18),
                 ),
               ),
               buildLoginUsingMobile(context),
@@ -78,12 +80,22 @@ class _LoginEmailViewState extends State<LoginEmailView> {
                   loginUser(e.text, p.text);
                 },
               ),
-              Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: Image.asset(
-                  'assets/google-logo.png',
-                  width: 45,
-                  height: 45,
+              GestureDetector(
+                onTap: () async{
+                  await AuthService().signInWithGoogle();
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>const UserRequest()));
+                },
+
+                //   onTap: ()=>AuthService().signInWithGoogle(){
+                //     Navigator.push(context, MaterialPageRoute(builder: (context)=>const Home()));
+                // },
+                child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Image.asset(
+                    'assets/google-logo.png',
+                    width: 45,
+                    height: 45,
+                  ),
                 ),
               ),
             ],
@@ -96,18 +108,17 @@ class _LoginEmailViewState extends State<LoginEmailView> {
   Future<void> loginUser(String email, String password) async {
     try {
       UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
       // Login successful
       showToast("login successful!");
       // Sign in (or link) the user with the credential
-      User? user = userCredential.user;
       Navigator.pushNamedAndRemoveUntil(
         context,
         homeRoute,
-        (route) => false,
+            (route) => false,
       );
     } catch (e) {
       if (e is FirebaseAuthException) {

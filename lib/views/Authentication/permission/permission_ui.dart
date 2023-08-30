@@ -1,3 +1,4 @@
+import 'package:dhatnoon_v2/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/CustomTemplates/auth_btn_ui.dart';
@@ -32,12 +33,12 @@ class PermissionUI extends StatelessWidget {
       } else if (model.permissionType == PermissionType.permission) {
         (model.pno == 2)
             ? model.requestPermission(
-                Permission.microphone, Permission.microphone)
+            Permission.microphone, Permission.microphone)
             : (model.pno == 3)
-                ? model.requestPermission(
-                    Permission.storage, Permission.storage)
-                : model.requestPermission(
-                    Permission.location, Permission.locationWhenInUse);
+            ? model.requestPermission(
+            Permission.storage, Permission.storage)
+            : model.requestPermission(
+            Permission.location, Permission.locationWhenInUse);
       }
     });
     return Scaffold(
@@ -91,7 +92,7 @@ class PermissionUI extends StatelessWidget {
               AuthBtnUI(
                 text: 'Continue',
                 onPressed: () {
-                  print("continue ");
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const UserRequest()));
                 },
               )
             ],
