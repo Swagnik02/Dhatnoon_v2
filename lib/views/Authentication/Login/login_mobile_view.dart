@@ -7,6 +7,9 @@ import 'package:dhatnoon_v2/views/Authentication/auth_components/signup_login_li
 
 import 'package:flutter/material.dart';
 
+import '../../home_page.dart';
+import '../SignUp/google_signup.dart';
+
 class LoginMobileView extends StatefulWidget {
   const LoginMobileView({super.key});
 
@@ -87,12 +90,18 @@ class _LoginMobileViewState extends State<LoginMobileView> {
                   color: ColorConstants.authText,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: Image.asset(
-                  'assets/google-logo.png',
-                  width: 45,
-                  height: 45,
+              GestureDetector(
+                onTap: () async{
+                  await AuthService().signInWithGoogle();
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>const UserRequest()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Image.asset(
+                    'assets/google-logo.png',
+                    width: 45,
+                    height: 45,
+                  ),
                 ),
               ),
             ],

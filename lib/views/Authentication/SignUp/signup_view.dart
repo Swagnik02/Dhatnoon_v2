@@ -1,9 +1,11 @@
+
 import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_buttons/mobile_signup_btn.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/auth_text_controllers.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/mobile_input.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/privacy_t&c.dart';
 import 'package:dhatnoon_v2/views/Authentication/auth_components/signup_login_link.dart';
+
 
 import 'package:flutter/material.dart';
 
@@ -78,22 +80,6 @@ class _SignUpViewState extends State<SignUpView> {
               buildSignUpButton(context, authTextControllers),
               const SizedBox(height: 16),
               buildLogInLink(context),
-              const SizedBox(height: 56),
-              const Text(
-                "Log In or Sign Up",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: ColorConstants.authText,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: Image.asset(
-                  'assets/google-logo.png',
-                  width: 45,
-                  height: 45,
-                ),
-              ),
             ],
           ),
         ),

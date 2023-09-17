@@ -1,5 +1,6 @@
 import 'package:dhatnoon_v2/constants/color_constants.dart';
 import 'package:dhatnoon_v2/constants/routes.dart';
+import 'package:dhatnoon_v2/views/Authentication/SignUp/google_signup.dart';
 import 'package:dhatnoon_v2/views/Home/accept_request.dart';
 import 'package:dhatnoon_v2/views/Home/home.dart';
 import 'package:dhatnoon_v2/views/Home/request.dart';
@@ -35,7 +36,8 @@ class _UserRequestState extends State<UserRequest> {
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
-            onPressed: () {
+            onPressed: () async {
+              await AuthService().signOutWithGoogle();
               signOutAndNavigateToAuth(context);
             },
           ),
@@ -74,7 +76,7 @@ void signOutAndNavigateToAuth(BuildContext context) async {
   if (context.mounted) {
     Navigator.of(context).pushNamedAndRemoveUntil(
       authRoute,
-      (_) => false,
+          (_) => false,
     );
   }
 }

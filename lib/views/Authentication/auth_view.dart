@@ -55,6 +55,7 @@ class AuthView extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+
                           // REGISTER BUTTON
                           Container(
                             margin: const EdgeInsets.fromLTRB(0, 0, 0.98, 16),
@@ -103,7 +104,7 @@ class AuthView extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        const LoginMobileView(),
+                                    const LoginMobileView(),
                                   ),
                                 );
                               },
